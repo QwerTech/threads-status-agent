@@ -3,3 +3,4 @@ Premain-Class: ThreadStatusAgent
 Can-Redefine-Classes: true
 Can-Retransform-Classes: true
 Can-Set-Native-Method-Prefix: true
+Agent-Class: ThreadStatusAgent
