@@ -12,4 +12,5 @@ jarRepositories.xml
 compiler.xml
 uiDesigner.xml
 misc.xml
+aws.xml
 libraries/
