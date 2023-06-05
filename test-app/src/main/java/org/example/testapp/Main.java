@@ -5,7 +5,8 @@ import java.util.Random;
 
 public class Main {
 
-    public static final Duration THREAD_SWITCH_INTERVAL = Duration.ofSeconds(3);
+    public static final Duration THREAD_BUSY_INTERVAL = Duration.ofMillis(100);
+    public static final Duration THREAD_SLEEP_INTERVAL = Duration.ofSeconds(1);
 
     public static void main(String[] args) {
         Thread swithingThread = new Thread(Main::switchThreadState, "SwitchThreadState");
@@ -14,11 +15,11 @@ public class Main {
 
     private static void switchThreadState() {
         while (true) {
-            sleep(THREAD_SWITCH_INTERVAL);
+            sleep(THREAD_SLEEP_INTERVAL);
             long start = System.nanoTime();
-            while (System.nanoTime() - start < THREAD_SWITCH_INTERVAL.toNanos()) {
+            while (System.nanoTime() - start < THREAD_BUSY_INTERVAL.toNanos()) {
                 @SuppressWarnings("unused")
-                var value = Math.sqrt(new Random().nextDouble());
+                double value = Math.sqrt(new Random().nextDouble());
             }
         }
     }
